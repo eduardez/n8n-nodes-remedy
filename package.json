@@ -1,0 +1,58 @@
+{
+  "name": "n8n-nodes-remedy",
+  "version": "0.1.0",
+  "description": "n8n nodes for the BMC Remedy ITSM API",
+  "keywords": [
+    "n8n-community-node-package",
+    "n8n",
+    "remedy",
+    "itsm"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "eduardez"
+  },
+  "engines": {
+    "node": ">=20.15"
+  },
+  "main": "index.js",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "index.js"
+  ],
+  "scripts": {
+    "build": "rimraf dist && tsc && gulp build:icons",
+    "dev": "tsc --watch",
+    "lint": "eslint credentials nodes package.json",
+    "test": "npm run build && node --test test/*.test.js",
+    "prepublishOnly": "npm run build && npm run lint"
+  },
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/RemedyApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Remedy/Remedy.node.js"
+    ]
+  },
+  "dependencies": {
+    "form-data": "^4.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@typescript-eslint/parser": "^8.50.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-n8n-nodes-base": "^1.16.4",
+    "gulp": "^5.0.0",
+    "n8n-workflow": "^1.120.3",
+    "prettier": "^3.5.3",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.8.2"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}
