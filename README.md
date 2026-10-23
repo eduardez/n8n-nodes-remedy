@@ -1,5 +1,7 @@
 # n8n-nodes-remedy
 
+![BMC logo](https://raw.githubusercontent.com/eduardez/n8n-nodes-remedy/main/nodes/Remedy/bmc-logo.png)
+
 Community node package for the BMC Remedy ITSM API. It provides a single **Remedy** node with resource/operation selectors and a **Remedy API** credential type.
 
 ## Install

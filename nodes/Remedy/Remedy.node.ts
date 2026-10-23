@@ -9,7 +9,7 @@ export class Remedy implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Remedy',
 		name: 'remedy',
-		icon: 'file:remedy.svg',
+		icon: 'file:bmc-logo.svg',
 		group: ['transform'],
 		version: 1,
 		subtitle: '={{$parameter["resource"] + ": " + $parameter["operation"]}}',

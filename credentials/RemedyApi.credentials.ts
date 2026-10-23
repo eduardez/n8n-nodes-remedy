@@ -1,9 +1,10 @@
-import type { ICredentialType, INodeProperties } from 'n8n-workflow';
+import type { Icon, ICredentialType, INodeProperties } from 'n8n-workflow';
 
 export class RemedyApi implements ICredentialType {
 	name = 'remedyApi';
 
 	displayName = 'Remedy API';
+	icon: Icon = 'file:bmc-logo.svg';
 
 	properties: INodeProperties[] = [
 		{
