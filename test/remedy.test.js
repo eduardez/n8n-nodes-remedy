@@ -24,7 +24,7 @@ function run(params, responses = [], options = {}) {
 	return { context, promise: new Remedy().execute.call(context) };
 }
 
-test('credential registration and test use a sanitized form login request', async () => {
+test('credential test passes form fields as an object to n8n request helper', async () => {
 	const credential = new RemedyApi();
 	assert.equal(credential.name, 'remedyApi');
 	assert.equal(credential.displayName, 'Remedy API');
@@ -44,7 +44,7 @@ test('credential registration and test use a sanitized form login request', asyn
 	assert.equal(request.url, 'https://remedy.example.test/api/jwt/login');
 	assert.equal(request.options.method, 'POST');
 	assert.equal(request.options.headers['Content-Type'], 'application/x-www-form-urlencoded');
-	assert.equal(request.options.form, 'username=automation+user&password=secret-value');
+	assert.deepEqual(request.options.form, { username: CREDENTIALS.username, password: CREDENTIALS.password });
 	assert.equal(request.options.resolveWithFullResponse, true);
 	assert.equal(request.options.timeout, 30000);
 	assert.equal(request.options.rejectUnauthorized, true);

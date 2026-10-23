@@ -403,7 +403,7 @@ export const remedyApiTest: ICredentialTestFunction = async function (
 		const response = await this.helpers.request(`${baseUrl}/jwt/login`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-			form: makeLoginForm(data.username, data.password).toString(),
+			form: { username: data.username, password: data.password },
 			encoding: 'utf8',
 			json: false,
 			resolveWithFullResponse: true,
